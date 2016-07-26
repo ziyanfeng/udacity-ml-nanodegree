@@ -56,7 +56,7 @@ In a terminal or command window, navigate to the top-level project directory the
 and
 ```jupyter notebook model_building.ipynb```
 
-This will open the Jupyter Notebook software and project file in your browser.
+This will open the Jupyter Notebook software and two code files in your browser.
 
 
 ### <a name="data"></a>Data
