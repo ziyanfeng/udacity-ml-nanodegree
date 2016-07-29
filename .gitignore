@@ -66,3 +66,7 @@ target/
 
 # Pycharm
 .idea
+
+# Data
+projects/capstone/raw_data
+projects/capstone/clean_data
