@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 """Implement bubble sort in Python.
-Input a list.
+Input a list with no duplicates.
 Output a sorted list."""
 
 
@@ -19,10 +19,15 @@ def bubblesort(array):
 
 # # Method 2
 # def bubblesort(array):
-#     for passnum in range(len(array) - 1, 0, -1):
+#     passnum = len(array) - 1
+#     unsorted = True
+#     while unsorted:
+#         unsorted = False
 #         for i in range(passnum):
 #             if array[i] > array[i+1]:
+#                 unsorted = True
 #                 array[i], array[i+1] = array[i+1], array[i]
+#             passnum -= 1
 #     return array
 
 
