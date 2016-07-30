@@ -9,7 +9,8 @@
 - **Project 2 - Supervised Learning**: Build a Student Intervention System
 - **Project 3 - Unsupervised Learning**: Creating Customer Segments
 - **Project 4 - Reinforcement Learning**: Train a Smartcab to Drive
-- **Capstone Project - Machine Learning Specializations**: Forecasting Supply and Demand Gap for Ride-sharing App DiDi
+- **Capstone Project - Machine Learning Specializations**: Forecasting Supply and Demand Gap for Ride-sharing App Didi Chuxing
+- **Technical Interview Practice**
 
 
 ### About the Program
