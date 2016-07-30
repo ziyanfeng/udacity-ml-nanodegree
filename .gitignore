@@ -48,23 +48,13 @@ coverage.xml
 *,cover
 .hypothesis/
 
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-
-# Sphinx documentation
-docs/_build/
-
 # PyBuilder
 target/
 
 # IPython Notebook
 .ipynb_checkpoints
 
-# Pycharm
+# PyCharm
 .idea
 
 # Data
