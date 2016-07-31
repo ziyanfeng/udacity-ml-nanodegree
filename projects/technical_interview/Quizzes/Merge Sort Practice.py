@@ -12,6 +12,7 @@ def mergesort(array):
         result, mid = [], len(array) // 2
         lefthalf = mergesort(array[:mid])
         righthalf = mergesort(array[mid:])
+        # merge
         while len(lefthalf) > 0 and len(righthalf) > 0:
             if lefthalf[0] < righthalf[0]:
                 result.append(lefthalf[0])
