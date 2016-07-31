@@ -23,7 +23,7 @@ Output a sorted list."""
 #     return quicksort(less) + equal + quicksort(greater)
 #
 
-# more concise version
+# more concise version using list comprehension
 def quicksort(array):
     if len(array) <= 1:
         return array
