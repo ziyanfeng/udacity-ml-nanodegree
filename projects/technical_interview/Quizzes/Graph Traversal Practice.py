@@ -170,18 +170,16 @@ class Graph(object):
         numbers corresponding to the traversed nodes.
         ARGUMENTS: start_node_num is the node number (integer)
         RETURN: a list of the node values (integers)."""
-        node = self.find_node(start_node_num)
-        ret_list = [node.value]
+        start_node = self.find_node(start_node_num)
+        ret_list = []
         # Your code here
-        queue = [node]
-        nodes_out = [edge.node_to for edge in node.edges if edge.node_to.value != node.value]
-        queue.extend(nodes_out)
+        queue = [start_node]
         while len(queue) > 0:
-            n = queue.pop(0)
-            if n.value not in ret_list:
-                ret_list.append(n.value)
-                n_out = [edge.node_to for edge in n.edges if edge.node_to.value != n.value]
-                queue.extend(n_out)
+            node = queue.pop(0)
+            if node.value not in ret_list:
+                ret_list.append(node.value)
+                nodes_out = [edge.node_to for edge in node.edges]
+                queue.extend(nodes_out)
         return ret_list
 
     def bfs_names(self, start_node_num):
