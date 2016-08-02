@@ -47,8 +47,34 @@ print question1('udacity', 'ad')
 # Your function definition should look like question2(a), and return a string.
 
 
+def question2(a):
+    palins = []
+    if len(a) <= 1:
+        palins.append(a)
+    elif a == a[::-1]:
+        palins.append(a)
+    else:
+        while len(a) > 1:
+            for i in range(len(a)):
+                if a[:i] == a[:i][::-1]:
+                    palins.append(a[:i])
+            a = a[1:]
+    l = [(len(p), i) for i, p in enumerate(palins)]
+    longest_i = max(l)[1]
+    return palins[longest_i]
 
 
+# Test Cases
+# Should print 'a' or 'b' or 'c'
+print question2('abc')
+# Should print 'aba'
+print question2('aba')
+# Should print ''
+print question2('')
+# Should print 'bcb'
+print question2('abcbd')
+# Should print 'a'
+print question2('a')
 
 
 # Question 3
@@ -60,20 +86,6 @@ print question1('udacity', 'ad')
 #  'B': [('A', 2), ('C', 5)],
 #  'C': [('B', 5)]}
 # Vertices are represented as unique strings. The function definition should be question3(G)
-
-
-def question3(G):
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Question 4
@@ -96,20 +108,6 @@ def question3(G):
 #           1,
 #           4)
 # and the answer would be 3.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Question 5
