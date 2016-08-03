@@ -165,8 +165,63 @@ print question2("zudfweormatjycujjirzjpyrmaxurectxrtqedmmgergwdvjmjtstdhciha"
 
 
 def question3(G):
-    sum_weight = 0
+    if len(G) <= 1:
+        return G
+    nodes = set(G.keys())
+    mst = {}
+    visited = []
+    start = G.keys()[0]
+    w, v = min([(weight, vertex) for (vertex, weight) in G[start]])
+    mst[start] = [(v, w)]
+    mst[v] = [(start, w)]
+    visited.append(start)
 
+    while len(visited) < len(nodes):
+        for node in mst.keys():
+            if node not in visited:
+                edges = [(weight, vertex) for (vertex, weight) in G[node] if vertex not in visited]
+                if len(edges) > 0:
+                    w, v = min(edges)
+                    if node in mst.keys():
+                        mst[node].extend([(v, w)])
+                    else:
+                        mst[node] = [(v, w)]
+                    if v in mst.keys():
+                        mst[v].extend([(node, w)])
+                    else:
+                        mst[v] = [(node, w)]
+                    visited.append(node)
+                else:
+                    visited.append(node)
+    return mst
+
+
+# Test Cases
+# Should print {}
+print question3({})
+# Should print {'A'}
+print question3({'A'})
+# Should print
+# {'A': [('E', 1)],
+#  'C': [('D', 3)],
+#  'B': [('E', 2), ('D', 2)],
+#  'E': [('A', 1), ('B', 2)],
+#  'D': [('B', 2), ('C', 3)]}
+print question3({'A': [('B', 3), ('E', 1)], 'B': [('A', 3), ('C', 9), ('D', 2), ('E', 2)],
+                 'C': [('B', 9), ('D', 3), ('E', 7)], 'D': [('B', 2), ('C', 3)],
+                 'E': [('A', 1), ('B', 2), ('C', 7)]})
+# Should print
+# {'A': [('B', 7), ('D', 5)],
+#  'B': [('A', 7), ('E', 7)],
+#  'C': [('E', 5)],
+#  'D': [('A', 5), ('F', 6)],
+#  'E': [('B', 7), ('C', 5), ('G', 9)],
+#  'F': [('D', 6)],
+#  'G': [('E', 9)]}
+print question3({'A': [('B', 7), ('D', 5)], 'B': [('A', 7), ('C', 8), ('D', 9), ('E', 7)],
+                 'C': [('B', 8), ('E', 5)], 'D': [('A', 5), ('B', 9), ('E', 15), ('F', 6)],
+                 'E': [('B', 7), ('C', 5), ('D', 15), ('F', 8), ('G', 9)],
+                 'F': [('D', 6), ('E', 8),  ('G', 11)], 'G': [('E', 9), ('F', 11)]})
 
 # Question 4
 # Find the least common ancestor between two nodes on a binary search tree.
