@@ -47,35 +47,101 @@ print question1('udacity', 'ad')
 # Your function definition should look like question2(a), and return a string.
 
 
-def question2(a):
-    palins = []
-    if len(a) <= 1:
-        palins.append(a)
-    elif a == a[::-1]:
-        palins.append(a)
+# def question2(a):
+#     palins = []
+#     if len(a) <= 1:
+#         palins.append(a)
+#     elif a == a[::-1]:
+#         palins.append(a)
+#     else:
+#         while len(a) > 1:
+#             for i in range(len(a) + 1):
+#                 if a[:i] == a[:i][::-1]:
+#                     palins.append(a[:i])
+#             a = a[1:]
+#     l = [(len(p), i) for i, p in enumerate(palins)]
+#     longest_i = max(l)[1]
+#     return palins[longest_i]
+
+
+def is_palin_helper(a, table, start, finish):
+    if start < 0 or finish >= len(a):
+        return False
+    if start > finish:
+        return False
+    if table[start][finish] is None:
+        is_palin = is_palin_helper(a, table, start+1, finish-1) and a[start] == a[finish]
+        table[start][finish] = is_palin
+        return is_palin
     else:
-        while len(a) > 1:
-            for i in range(len(a)):
-                if a[:i] == a[:i][::-1]:
-                    palins.append(a[:i])
-            a = a[1:]
-    l = [(len(p), i) for i, p in enumerate(palins)]
-    longest_i = max(l)[1]
-    return palins[longest_i]
+        return table[start][finish]
+
+
+def question2(a):
+    if len(a) <= 1:
+        return a
+    is_palin = [[None] * len(a) for i in range(len(a))]
+    # all substrings of length 1 are palindromes
+    for i in range(len(a)):
+        is_palin[i][i] = True
+
+    # check if substring of length 2 is palindrome
+    for i in range(len(a) - 1):
+        if a[i] == a[i+1]:
+            is_palin[i][i+1] = True
+
+    # check substrings of length greater than 2
+    for i in range(len(a)):
+        for j in range(len(a)):
+            is_palin_helper(a, is_palin, i, j)
+
+    # find the longest panlindromic substring
+    length = 0
+    longest = ''
+    for i in range(len(a)):
+        for j in range(len(a)):
+            if is_palin[i][j]:
+                if j - i + 1 > length:
+                    length = j - i + 1
+                    longest = a[i:j+1]
+    return longest
 
 
 # Test Cases
-# Should print 'a' or 'b' or 'c'
+# Should print 'a'
 print question2('abc')
 # Should print 'aba'
 print question2('aba')
 # Should print ''
 print question2('')
-# Should print 'bcb'
-print question2('abcbd')
+# Should print 'abcba'
+print question2('abcba')
+# Should print 'geeksskeeg'
+print question2("forgeeksskeegfor")
 # Should print 'a'
 print question2('a')
-
+# Should print 'hpyyph'
+print question2("anugnxshgonmqydttcvmtsoaprxnhpmpovdolbidqiyqubirkvhwppcdyeouvgedccipsvnobrccbndzjdbgxkzdbcj"
+                "sjjovnhpnbkurxqfupiprpbiwqdnwaqvjbqoaqzkqgdxkfczdkznqxvupdmnyiidqpnbvgjraszbvvztpapxmomnghf"
+                "aywkzlrupvjpcvascgvstqmvuveiiixjmdofdwyvhgkydrnfuojhzulhobyhtsxmcovwmamjwljioevhafdlpjpmqst"
+                "guqhrhvsdvinphejfbdvrvabthpyyphyqharjvzriosrdnwmaxtgriivdqlmugtagvsoylqfwhjpmjxcysfujdvcqov"
+                "xabjdbvyvembfpahvyoybdhweikcgnzrdqlzusgoobysfmlzifwjzlazuepimhbgkrfimmemhayxeqxynewcnynmgyj"
+                "cwrpqnayvxoebgyjusppfpsfeonfwnbsdonucaipoafavmlrrlplnnbsaghbawooabsjndqnvruuwvllpvvhuepmqtp"
+                "rgktnwxmflmmbifbbsfthbeafseqrgwnwjxkkcqgbucwusjdipxuekanzwimuizqynaxrvicyzjhulqjshtsqswehno"
+                "zehmbsdmacciflcgsrlyhjukpvosptmsjfteoimtewkrivdllqiotvtrubgkfcacvgqzxjmhmmqlikrtfrurltgtcre"
+                "afcgisjpvasiwmhcofqkcteudgjoqqmtucnwcocsoiqtfuoazxdayricnmwcg")
+# Should print 'gykrkyg'
+print question2("zudfweormatjycujjirzjpyrmaxurectxrtqedmmgergwdvjmjtstdhcihacqnothgttgqfywcpgnuvwglvfiuxteop"
+                "oyizgehkwuvvkqxbnufkcbodlhdmbqyghkojrgokpwdhtdrwmvdegwycecrgjvuexlguayzcammupgeskrvpthrmwqa"
+                "qsdcgycdupykppiyhwzwcplivjnnvwhqkkxildtyjltklcokcrgqnnwzzeuqioyahqpuskkpbxhvzvqyhlegmoviogz"
+                "wuiqahiouhnecjwysmtarjjdjqdrkljawzasriouuiqkcwwqsxifbndjmyprdozhwaoibpqrthpcjphgsfbeqrqqoqi"
+                "qqdicvybzxhklehzzapbvcyleljawowluqgxxwlrymzojshlwkmzwpixgfjljkmwdtjeabgyrpbqyyykmoaqdambpky"
+                "yvukalbrzoyoufjqeftniddsfqnilxlplselqatdgjziphvrbokofvuerpsvqmzakbyzxtxvyanvjpfyvyiivqusfrs"
+                "ufjanmfibgrkwtiuoykiavpbqeyfsuteuxxjiyxvlvgmehycdvxdorpepmsinvmyzeqeiikajopqedyopirmhymozer"
+                "nxzaueljjrhcsofwyddkpnvcvzixdjknikyhzmstvbducjcoyoeoaqruuewclzqqqxzpgykrkygxnmlsrjudoaejxki"
+                "pkgmcoqtxhelvsizgdwdyjwuumazxfstoaxeqqxoqezakdqjwpkrbldpcbbxexquqrznavcrprnydufsidakvrpuzgf"
+                "isdxreldbqfizngtrilnbqboxwmwienlkmmiuifrvytukcqcpeqdwwucymgvyrektsnfijdcdoawbcwkkjkqwzffnuq"
+                "ituihjaklvthulmcjrhqcyzvekzqlxgddjoir")
 
 # Question 3
 # Given an undirected graph G, find the minimum spanning tree within G.
@@ -86,6 +152,10 @@ print question2('a')
 #  'B': [('A', 2), ('C', 5)],
 #  'C': [('B', 5)]}
 # Vertices are represented as unique strings. The function definition should be question3(G)
+
+
+def question3(G):
+    sum_weight = 0
 
 
 # Question 4
@@ -121,5 +191,7 @@ print question2('a')
 #   def __init__(self, data):
 #     self.data = data
 #     self.next = None
+
+
 
 
