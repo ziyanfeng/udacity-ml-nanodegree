@@ -110,39 +110,48 @@ def question2(a):
 # Test Cases
 # Should print 'a'
 print question2('abc')
-# Should print 'aba'
-print question2('aba')
+# Should print 'a'
+print question2('a')
 # Should print ''
 print question2('')
+# Should print 'aba'
+print question2('aba')
 # Should print 'abcba'
 print question2('abcba')
 # Should print 'geeksskeeg'
 print question2("forgeeksskeegfor")
-# Should print 'a'
-print question2('a')
 # Should print 'hpyyph'
-print question2("anugnxshgonmqydttcvmtsoaprxnhpmpovdolbidqiyqubirkvhwppcdyeouvgedccipsvnobrccbndzjdbgxkzdbcj"
-                "sjjovnhpnbkurxqfupiprpbiwqdnwaqvjbqoaqzkqgdxkfczdkznqxvupdmnyiidqpnbvgjraszbvvztpapxmomnghf"
-                "aywkzlrupvjpcvascgvstqmvuveiiixjmdofdwyvhgkydrnfuojhzulhobyhtsxmcovwmamjwljioevhafdlpjpmqst"
-                "guqhrhvsdvinphejfbdvrvabthpyyphyqharjvzriosrdnwmaxtgriivdqlmugtagvsoylqfwhjpmjxcysfujdvcqov"
-                "xabjdbvyvembfpahvyoybdhweikcgnzrdqlzusgoobysfmlzifwjzlazuepimhbgkrfimmemhayxeqxynewcnynmgyj"
-                "cwrpqnayvxoebgyjusppfpsfeonfwnbsdonucaipoafavmlrrlplnnbsaghbawooabsjndqnvruuwvllpvvhuepmqtp"
-                "rgktnwxmflmmbifbbsfthbeafseqrgwnwjxkkcqgbucwusjdipxuekanzwimuizqynaxrvicyzjhulqjshtsqswehno"
-                "zehmbsdmacciflcgsrlyhjukpvosptmsjfteoimtewkrivdllqiotvtrubgkfcacvgqzxjmhmmqlikrtfrurltgtcre"
-                "afcgisjpvasiwmhcofqkcteudgjoqqmtucnwcocsoiqtfuoazxdayricnmwcg")
+print question2("anugnxshgonmqydttcvmtsoaprxnhpmpovdolbidqiyqubirkvhwppcdyeo"
+                "uvgedccipsvnobrccbndzjdbgxkzdbcjsjjovnhpnbkurxqfupiprpbiwqd"
+                "nwaqvjbqoaqzkqgdxkfczdkznqxvupdmnyiidqpnbvgjraszbvvztpapxmo"
+                "mnghfaywkzlrupvjpcvascgvstqmvuveiiixjmdofdwyvhgkydrnfuojhzu"
+                "lhobyhtsxmcovwmamjwljioevhafdlpjpmqstguqhrhvsdvinphejfbdvrv"
+                "abthpyyphyqharjvzriosrdnwmaxtgriivdqlmugtagvsoylqfwhjpmjxcy"
+                "sfujdvcqovxabjdbvyvembfpahvyoybdhweikcgnzrdqlzusgoobysfmlzi"
+                "fwjzlazuepimhbgkrfimmemhayxeqxynewcnynmgyjcwrpqnayvxoebgyju"
+                "sppfpsfeonfwnbsdonucaipoafavmlrrlplnnbsaghbawooabsjndqnvruu"
+                "wvllpvvhuepmqtprgktnwxmflmmbifbbsfthbeafseqrgwnwjxkkcqgbucw"
+                "usjdipxuekanzwimuizqynaxrvicyzjhulqjshtsqswehnozehmbsdmacci"
+                "flcgsrlyhjukpvosptmsjfteoimtewkrivdllqiotvtrubgkfcacvgqzxjm"
+                "hmmqlikrtfrurltgtcreafcgisjpvasiwmhcofqkcteudgjoqqmtucnwcoc"
+                "soiqtfuoazxdayricnmwcg")
 # Should print 'gykrkyg'
-print question2("zudfweormatjycujjirzjpyrmaxurectxrtqedmmgergwdvjmjtstdhcihacqnothgttgqfywcpgnuvwglvfiuxteop"
-                "oyizgehkwuvvkqxbnufkcbodlhdmbqyghkojrgokpwdhtdrwmvdegwycecrgjvuexlguayzcammupgeskrvpthrmwqa"
-                "qsdcgycdupykppiyhwzwcplivjnnvwhqkkxildtyjltklcokcrgqnnwzzeuqioyahqpuskkpbxhvzvqyhlegmoviogz"
-                "wuiqahiouhnecjwysmtarjjdjqdrkljawzasriouuiqkcwwqsxifbndjmyprdozhwaoibpqrthpcjphgsfbeqrqqoqi"
-                "qqdicvybzxhklehzzapbvcyleljawowluqgxxwlrymzojshlwkmzwpixgfjljkmwdtjeabgyrpbqyyykmoaqdambpky"
-                "yvukalbrzoyoufjqeftniddsfqnilxlplselqatdgjziphvrbokofvuerpsvqmzakbyzxtxvyanvjpfyvyiivqusfrs"
-                "ufjanmfibgrkwtiuoykiavpbqeyfsuteuxxjiyxvlvgmehycdvxdorpepmsinvmyzeqeiikajopqedyopirmhymozer"
-                "nxzaueljjrhcsofwyddkpnvcvzixdjknikyhzmstvbducjcoyoeoaqruuewclzqqqxzpgykrkygxnmlsrjudoaejxki"
-                "pkgmcoqtxhelvsizgdwdyjwuumazxfstoaxeqqxoqezakdqjwpkrbldpcbbxexquqrznavcrprnydufsidakvrpuzgf"
-                "isdxreldbqfizngtrilnbqboxwmwienlkmmiuifrvytukcqcpeqdwwucymgvyrektsnfijdcdoawbcwkkjkqwzffnuq"
-                "ituihjaklvthulmcjrhqcyzvekzqlxgddjoir")
-
+print question2("zudfweormatjycujjirzjpyrmaxurectxrtqedmmgergwdvjmjtstdhciha"
+                "cqnothgttgqfywcpgnuvwglvfiuxteopoyizgehkwuvvkqxbnufkcbodlhd"
+                "mbqyghkojrgokpwdhtdrwmvdegwycecrgjvuexlguayzcammupgeskrvpth"
+                "rmwqaqsdcgycdupykppiyhwzwcplivjnnvwhqkkxildtyjltklcokcrgqnn"
+                "wzzeuqioyahqpuskkpbxhvzvqyhlegmoviogzwuiqahiouhnecjwysmtarj"
+                "jdjqdrkljawzasriouuiqkcwwqsxifbndjmyprdozhwaoibpqrthpcjphgs"
+                "fbeqrqqoqiqqdicvybzxhklehzzapbvcyleljawowluqgxxwlrymzojshlw"
+                "kmzwpixgfjljkmwdtjeabgyrpbqyyykmoaqdambpkyyvukalbrzoyoufjqe"
+                "ftniddsfqnilxlplselqatdgjziphvrbokofvuerpsvqmzakbyzxtxvyanv"
+                "jpfyvyiivqusfrsufjanmfibgrkwtiuoykiavpbqeyfsuteuxxjiyxvlvgm"
+                "ehycdvxdorpepmsinvmyzeqeiikajopqedyopirmhymozernxzaueljjrhc"
+                "sofwyddkpnvcvzixdjknikyhzmstvbducjcoyoeoaqruuewclzqqqxzpgyk"
+                "rkygxnmlsrjudoaejxkipkgmcoqtxhelvsizgdwdyjwuumazxfstoaxeqqx"
+                "oqezakdqjwpkrbldpcbbxexquqrznavcrprnydufsidakvrpuzgfisdxrel"
+                "dbqfizngtrilnbqboxwmwienlkmmiuifrvytukcqcpeqdwwucymgvyrekts"
+                "nfijdcdoawbcwkkjkqwzffnuqituihjaklvthulmcjrhqcyzvekzqlxgddjoir")
 
 # Question 3
 # Given an undirected graph G, find the minimum spanning tree within G.
