@@ -17,10 +17,10 @@ def get_anagrams(t):
 
 
 def question1(s, t):
-    if s == '' or t == '':
-        return False
-    elif s == t:
+    if s == t:
         return True
+    elif s == '' or t == '':
+        return False
     else:
         anagrams = get_anagrams(t)
         for anagram in anagrams:
@@ -29,39 +29,26 @@ def question1(s, t):
         return False
 
 
-# Test Cases
-# Should print False
+# Test Cases:
 print question1('', '')
 # Should print False
+
 print question1('', 'a')
 # Should print False
+
 print question1('a', '')
-# Should print True
+# Should print False
+
 print question1('udacity', 'udacity')
 # Should print True
+
 print question1('udacity', 'ad')
+# Should print True
 
 
 # Question 2
 # Given a string a, find the longest palindromic substring contained in a.
 # Your function definition should look like question2(a), and return a string.
-
-
-# def question2(a):
-#     palins = []
-#     if len(a) <= 1:
-#         palins.append(a)
-#     elif a == a[::-1]:
-#         palins.append(a)
-#     else:
-#         while len(a) > 1:
-#             for i in range(len(a) + 1):
-#                 if a[:i] == a[:i][::-1]:
-#                     palins.append(a[:i])
-#             a = a[1:]
-#     l = [(len(p), i) for i, p in enumerate(palins)]
-#     longest_i = max(l)[1]
-#     return palins[longest_i]
 
 
 def is_palin_helper(a, table, start, finish):
@@ -107,51 +94,37 @@ def question2(a):
     return longest
 
 
-# Test Cases
-# Should print 'a'
+# Test Cases:
 print question2('abc')
 # Should print 'a'
+
 print question2('a')
-# Should print ''
+# Should print 'a'
+
 print question2('')
-# Should print 'aba'
+# Should print ''
+
 print question2('aba')
-# Should print 'abcba'
+# Should print 'aba'
+
 print question2('abcba')
-# Should print 'geeksskeeg'
+# Should print 'abcba'
+
 print question2("forgeeksskeegfor")
-# Should print 'hpyyph'
-print question2("anugnxshgonmqydttcvmtsoaprxnhpmpovdolbidqiyqubirkvhwppcdyeo"
-                "uvgedccipsvnobrccbndzjdbgxkzdbcjsjjovnhpnbkurxqfupiprpbiwqd"
-                "nwaqvjbqoaqzkqgdxkfczdkznqxvupdmnyiidqpnbvgjraszbvvztpapxmo"
-                "mnghfaywkzlrupvjpcvascgvstqmvuveiiixjmdofdwyvhgkydrnfuojhzu"
-                "lhobyhtsxmcovwmamjwljioevhafdlpjpmqstguqhrhvsdvinphejfbdvrv"
-                "abthpyyphyqharjvzriosrdnwmaxtgriivdqlmugtagvsoylqfwhjpmjxcy"
-                "sfujdvcqovxabjdbvyvembfpahvyoybdhweikcgnzrdqlzusgoobysfmlzi"
-                "fwjzlazuepimhbgkrfimmemhayxeqxynewcnynmgyjcwrpqnayvxoebgyju"
-                "sppfpsfeonfwnbsdonucaipoafavmlrrlplnnbsaghbawooabsjndqnvruu"
-                "wvllpvvhuepmqtprgktnwxmflmmbifbbsfthbeafseqrgwnwjxkkcqgbucw"
-                "usjdipxuekanzwimuizqynaxrvicyzjhulqjshtsqswehnozehmbsdmacci"
-                "flcgsrlyhjukpvosptmsjfteoimtewkrivdllqiotvtrubgkfcacvgqzxjm"
-                "hmmqlikrtfrurltgtcreafcgisjpvasiwmhcofqkcteudgjoqqmtucnwcoc"
-                "soiqtfuoazxdayricnmwcg")
-# Should print 'gykrkyg'
-print question2("zudfweormatjycujjirzjpyrmaxurectxrtqedmmgergwdvjmjtstdhciha"
-                "cqnothgttgqfywcpgnuvwglvfiuxteopoyizgehkwuvvkqxbnufkcbodlhd"
-                "mbqyghkojrgokpwdhtdrwmvdegwycecrgjvuexlguayzcammupgeskrvpth"
-                "rmwqaqsdcgycdupykppiyhwzwcplivjnnvwhqkkxildtyjltklcokcrgqnn"
-                "wzzeuqioyahqpuskkpbxhvzvqyhlegmoviogzwuiqahiouhnecjwysmtarj"
-                "jdjqdrkljawzasriouuiqkcwwqsxifbndjmyprdozhwaoibpqrthpcjphgs"
-                "fbeqrqqoqiqqdicvybzxhklehzzapbvcyleljawowluqgxxwlrymzojshlw"
-                "kmzwpixgfjljkmwdtjeabgyrpbqyyykmoaqdambpkyyvukalbrzoyoufjqe"
-                "ftniddsfqnilxlplselqatdgjziphvrbokofvuerpsvqmzakbyzxtxvyanv"
-                "jpfyvyiivqusfrsufjanmfibgrkwtiuoykiavpbqeyfsuteuxxjiyxvlvgm"
-                "ehycdvxdorpepmsinvmyzeqeiikajopqedyopirmhymozernxzaueljjrhc"
-                "sofwyddkpnvcvzixdjknikyhzmstvbducjcoyoeoaqruuewclzqqqxzpgyk"
-                "rkygxnmlsrjudoaejxkipkgmcoqtxhelvsizgdwdyjwuumazxfstoaxeqqx"
-                "oqezakdqjwpkrbldpcbbxexquqrznavcrprnydufsidakvrpuzgfisdxrel"
-                "dbqfizngtrilnbqboxwmwienlkmmiuifrvytukcqcpeqdwwucymgvyrekts"
-                "nfijdcdoawbcwkkjkqwzffnuqituihjaklvthulmcjrhqcyzvekzqlxgddjoir")
+# Should print 'geeksskeeg'
+
+print question2("bqfizngtrilnbqboxwmwienlkmmiuifrvytukcqcpeqdwwucymgvyrektskcqcpeqdwwucymgvyrektswe"
+                "nfijdcdoawbcwkkjkqwzffnuqituihjaklvthulmcjrhqcyzvekzqlxgddjoirmcjrhqcyzvekzqlxgddjo"
+                "wzzeuqioyahqpuskkpbxhvzvqyhlegmoviogzwuiqahiouhnecjwysmtarjrmwqaqsdcgycdupykppiyhw"
+                "rmwqaqsdcgycdupykppiyhwzwcplivjnnvwhqkkxildtyjltklcokcrgqnnzudfweormatjycujjirzjpy"
+                "rmaxurectxrtqedmmgergwdvjmjtstdhcihaqwertyuiopabcdefahpyyphafedcbapoiuytrewqzudfwe"
+                "ormatjycujjirzjpyrmaxurectxrtqedmmgergwdvjmjtstdhciharmwqaqsdcgycdupykppiyhwzwcpli"
+                "vjnnvwhqkkxildtyjltklcokcrgqnndjqdrkljawzasriouuiqkcwwqsxifbndjmyprdozhwaoibpqrthp"
+                "cjphgsjpfyvyiivqusfrsufjanmfibgrkwtiuoykiavpbqeyfsuteuxxjiyxvlvgmehycdvxdorpepmvcy"
+                "nfijdcdoawbcwkkjkqwzffnuqituihjaklvthulmcjrhqcyzvekzqlxgddjoirmcjrhqcyzvekzqlxgddj"
+                "bqfizngtrilnbqboxwmwienlkmmiuifrvytukcqcpeqdwwucymgvyrektskcqcpeqdwwucymgvyrektswe")
+# Should print 'qwertyuiopabcdefahpyyphafedcbapoiuytrewq'
+
 
 # Question 3
 # Given an undirected graph G, find the minimum spanning tree within G.
@@ -187,20 +160,32 @@ def question3(G):
     return mst
 
 
-# Test Cases
-# Should print {}
+# Test Cases:
 print question3({})
-# Should print {'A': []}
+# Should print {}
+
 print question3({'A': []})
+# Should print {'A': []}
+
+print question3({'A': [('B', 3), ('E', 1)],
+                 'B': [('A', 3), ('C', 9), ('D', 2), ('E', 2)],
+                 'C': [('B', 9), ('D', 3), ('E', 7)],
+                 'D': [('B', 2), ('C', 3)],
+                 'E': [('A', 1), ('B', 2), ('C', 7)]})
 # Should print
 # {'A': [('E', 1)],
 #  'C': [('D', 3)],
 #  'B': [('E', 2), ('D', 2)],
 #  'E': [('A', 1), ('B', 2)],
 #  'D': [('B', 2), ('C', 3)]}
-print question3({'A': [('B', 3), ('E', 1)], 'B': [('A', 3), ('C', 9), ('D', 2), ('E', 2)],
-                 'C': [('B', 9), ('D', 3), ('E', 7)], 'D': [('B', 2), ('C', 3)],
-                 'E': [('A', 1), ('B', 2), ('C', 7)]})
+
+print question3({'A': [('B', 7), ('D', 5)],
+                 'B': [('A', 7), ('C', 8), ('D', 9), ('E', 7)],
+                 'C': [('B', 8), ('E', 5)],
+                 'D': [('A', 5), ('B', 9), ('E', 15), ('F', 6)],
+                 'E': [('B', 7), ('C', 5), ('D', 15), ('F', 8), ('G', 9)],
+                 'F': [('D', 6), ('E', 8),  ('G', 11)],
+                 'G': [('E', 9), ('F', 11)]})
 # Should print
 # {'A': [('D', 5), ('B', 7)],
 #  'C': [('E', 5)],
@@ -209,10 +194,7 @@ print question3({'A': [('B', 3), ('E', 1)], 'B': [('A', 3), ('C', 9), ('D', 2), 
 #  'D': [('A', 5), ('F', 6)],
 #  'G': [('E', 9)],
 #  'F': [('D', 6)]}
-print question3({'A': [('B', 7), ('D', 5)], 'B': [('A', 7), ('C', 8), ('D', 9), ('E', 7)],
-                 'C': [('B', 8), ('E', 5)], 'D': [('A', 5), ('B', 9), ('E', 15), ('F', 6)],
-                 'E': [('B', 7), ('C', 5), ('D', 15), ('F', 8), ('G', 9)],
-                 'F': [('D', 6), ('E', 8),  ('G', 11)], 'G': [('E', 9), ('F', 11)]})
+
 
 # Question 4
 # Find the least common ancestor between two nodes on a binary search tree.
@@ -223,7 +205,8 @@ print question3({'A': [('B', 7), ('D', 5)], 'B': [('A', 7), ('C', 8), ('D', 9), 
 # The function definition should look like question4(T, r, n1, n2), where T is the tree represented
 # as a matrix, where the index of the list is equal to the integer stored in that node and a 1
 # represents a child node, r is a non-negative integer representing the root, and n1 and n2 are
-# non-negative integers representing the two nodes in no particular order. For example, one test case might be
+# non-negative integers representing the two nodes in no particular order. For example, one test
+# case might be
 #
 # question4([[0, 1, 0, 0, 0],
 #            [0, 0, 0, 0, 0],
@@ -236,18 +219,77 @@ print question3({'A': [('B', 7), ('D', 5)], 'B': [('A', 7), ('C', 8), ('D', 9), 
 # and the answer would be 3.
 
 
+def question4(T, r, n1, n2):
+    if len(T) == 0:
+        return T
+    elif len(T) == 1:
+        return r
+    a1 = None
+    parent1 = []
+    while a1 != r:
+        for a in range(len(T)):
+            if T[a][n1] == 1:
+                a1 = a
+                n1 = a1
+                parent1.append(a1)
+    a2 = None
+    parent2 = []
+    while a2 != r:
+        for a in range(len(T)):
+            if T[a][n2] == 1:
+                a2 = a
+                n2 = a2
+                parent2.append(a2)
+    for a1 in parent1:
+        for a2 in parent2:
+            if a1 == a2:
+                return a1
+
+
+# Test Cases:
+print question4([],
+                None,
+                None,
+                None)
+# Should print []
+print question4([[0]],
+                0,
+                0,
+                0)
+# Should print 0
+print question4([[0, 1, 0, 0, 0],
+                 [0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0],
+                 [1, 0, 0, 0, 1],
+                 [0, 0, 0, 0, 0]],
+                3,
+                1,
+                4)
+# Should print 3
+print question4([[0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 1, 0, 1, 0, 0],
+                 [1, 0, 0, 0, 0, 1, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 1, 0, 0, 1],
+                 [0, 0, 0, 0, 0, 0, 0]],
+                1,
+                0,
+                6)
+# Should print 2
+
+
 # Question 5
 # Find the element in a singly linked list that's m elements from the end. For example, if a
 # linked list has 5 elements, the 3rd element from the end is the 3rd element. The function
 # definition should look like question5(ll, m), where ll is the first node of a linked list
 # and m is the "mth number from the end". You should copy/paste the Node class below to use
 # as a representation of a node in the linked list. Return the value of the node at that position.
-#
+
+
 # class Node(object):
-#   def __init__(self, data):
-#     self.data = data
-#     self.next = None
-
-
+#     def __init__(self, data):
+#         self.data = data
+#         self.next = None
 
 
