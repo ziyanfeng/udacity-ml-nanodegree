@@ -287,9 +287,59 @@ print question4([[0, 0, 0, 0, 0, 0, 0],
 # as a representation of a node in the linked list. Return the value of the node at that position.
 
 
-# class Node(object):
-#     def __init__(self, data):
-#         self.data = data
-#         self.next = None
+class Node(object):
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+def question5(ll, m):
+    if ll:
+        length = 1
+        node = ll
+        while node.next:
+            node = node.next
+            length += 1
+
+        n = length - m
+        i = 0
+        node = ll
+        while i < n:
+            node = node.next
+            i += 1
+    else:
+        node = ll
+    return node.data
+
+
+# Test Cases:
+e0 = Node(None)
+print question5(e0, 1)
+# Should print None
+
+e0 = Node(0)
+print question5(e0, 4)
+# Should print 0
+
+e0 = Node(0)
+e1 = Node(1)
+e2 = Node(2)
+e3 = Node(3)
+e4 = Node(4)
+e5 = Node(5)
+e6 = Node(6)
+e7 = Node(7)
+e8 = Node(8)
+e0.next = e1
+e1.next = e2
+e2.next = e3
+e3.next = e4
+e4.next = e5
+e5.next = e6
+e6.next = e7
+e7.next = e8
+print question5(e0, 3)
+# Should print 6
+
 
 
