@@ -165,42 +165,33 @@ print question2("zudfweormatjycujjirzjpyrmaxurectxrtqedmmgergwdvjmjtstdhciha"
 
 
 def question3(G):
-    if len(G) <= 1:
+    if len(G) < 1:
         return G
     nodes = set(G.keys())
     mst = {}
-    visited = []
     start = G.keys()[0]
-    w, v = min([(weight, vertex) for (vertex, weight) in G[start]])
-    mst[start] = [(v, w)]
-    mst[v] = [(start, w)]
-    visited.append(start)
+    mst[start] = []
 
-    while len(visited) < len(nodes):
+    while len(mst.keys()) < len(nodes):
+        min_w = float('inf')
+        min_edge = None
         for node in mst.keys():
-            if node not in visited:
-                edges = [(weight, vertex) for (vertex, weight) in G[node] if vertex not in visited]
-                if len(edges) > 0:
-                    w, v = min(edges)
-                    if node in mst.keys():
-                        mst[node].extend([(v, w)])
-                    else:
-                        mst[node] = [(v, w)]
-                    if v in mst.keys():
-                        mst[v].extend([(node, w)])
-                    else:
-                        mst[v] = [(node, w)]
-                    visited.append(node)
-                else:
-                    visited.append(node)
+            edges = [(weight, vertex) for (vertex, weight) in G[node] if vertex not in mst.keys()]
+            if len(edges) > 0:
+                w, v = min(edges)
+                if w < min_w:
+                    min_w = w
+                    min_edge = (node, v)
+        mst[min_edge[0]].append((min_edge[1], min_w))
+        mst[min_edge[1]] = [(min_edge[0], min_w)]
     return mst
 
 
 # Test Cases
 # Should print {}
 print question3({})
-# Should print {'A'}
-print question3({'A'})
+# Should print {'A': []}
+print question3({'A': []})
 # Should print
 # {'A': [('E', 1)],
 #  'C': [('D', 3)],
