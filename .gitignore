@@ -60,3 +60,7 @@ target/
 # Data
 projects/capstone/raw_data
 projects/capstone/clean_data
+
+* File
+projects/technical_interview/technical_interview_project.zip
+projects/technical_interview/technical_interview_project/
