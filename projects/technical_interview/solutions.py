@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Question 1
+# Question 1 ###############################################################################################
 # Given two strings s and t, determine whether some anagram of t is a substring of s.
 # For example: if s = "udacity" and t = "ad", then the function returns True.
 # Your function definition should look like: question1(s, t) and return a boolean True or False.
@@ -46,7 +46,7 @@ print question1('udacity', 'ad')
 # Should print True
 
 
-# Question 2
+# Question 2 ###############################################################################################
 # Given a string a, find the longest palindromic substring contained in a.
 # Your function definition should look like question2(a), and return a string.
 
@@ -126,7 +126,7 @@ print question2("bqfizngtrilnbqboxwmwienlkmmiuifrvytukcqcpeqdwwucymgvyrektskcqcp
 # Should print 'qwertyuiopabcdefahpyyphafedcbapoiuytrewq'
 
 
-# Question 3
+# Question 3 ###############################################################################################
 # Given an undirected graph G, find the minimum spanning tree within G.
 # A minimum spanning tree connects all vertices in a graph with the smallest possible total weight of edges.
 # Your function should take in and return an adjacency list structured like this:
@@ -196,7 +196,7 @@ print question3({'A': [('B', 7), ('D', 5)],
 #  'F': [('D', 6)]}
 
 
-# Question 4
+# Question 4 ###############################################################################################
 # Find the least common ancestor between two nodes on a binary search tree.
 # The least common ancestor is the farthest node from the root that is an ancestor of both nodes.
 # For example, the root is a common ancestor of all nodes on the tree, but if both nodes are
@@ -279,7 +279,7 @@ print question4([[0, 0, 0, 0, 0, 0, 0],
 # Should print 2
 
 
-# Question 5
+# Question 5 ###############################################################################################
 # Find the element in a singly linked list that's m elements from the end. For example, if a
 # linked list has 5 elements, the 3rd element from the end is the 3rd element. The function
 # definition should look like question5(ll, m), where ll is the first node of a linked list
@@ -340,6 +340,3 @@ e6.next = e7
 e7.next = e8
 print question5(e0, 3)
 # Should print 6
-
-
-
